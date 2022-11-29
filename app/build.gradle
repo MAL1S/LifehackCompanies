@@ -40,6 +40,8 @@ dependencies {
     implementation project(':core_data')
     implementation project(':core_database')
     implementation project(':core_network')
+    implementation project(':core_util')
+    implementation project(':core_style')
     implementation project(':feature_company_list')
 
     implementation daggerDependencies.dagger

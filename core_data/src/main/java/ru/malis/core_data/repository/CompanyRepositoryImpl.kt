@@ -7,11 +7,12 @@ import ru.malis.core_database.dao.CompanyDao
 import ru.malis.core_domain.models.Company
 import ru.malis.core_domain.repository.CompanyRepository
 import ru.malis.core_network.api.CompanyApi
+import ru.malis.core_util.coroutinedispatchers.IoDispatcher
 
 class CompanyRepositoryImpl(
     private val companyDao: CompanyDao,
     private val companyApi: CompanyApi,
-    private val ioDispatcher: CoroutineDispatcher
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ): CompanyRepository {
 
     override fun getCompanies(): Flow<List<Company>> {

@@ -8,7 +8,8 @@ import ru.malis.core_domain.models.Company
 @Database(
     entities = [
         Company::class
-    ], version = 1
+    ],
+    version = 1
 )
 abstract class CompanyDB : RoomDatabase() {
 

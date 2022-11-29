@@ -1,13 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
 }
 
-apply from: "$rootDir/dependencies.gradle"
-
 android {
-    namespace 'ru.malis.core_data'
+    namespace 'ru.malis.core_style'
     compileSdk 32
 
     defaultConfig {
@@ -34,14 +31,6 @@ android {
 }
 
 dependencies {
-    implementation project(':core_domain')
-    implementation project(':core_database')
-    implementation project(':core_network')
-    implementation project(':core_util')
-
-    implementation daggerDependencies.dagger
-    kapt daggerDependencies.dagger_compiler
-    implementation annotationDependencies.annotation
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

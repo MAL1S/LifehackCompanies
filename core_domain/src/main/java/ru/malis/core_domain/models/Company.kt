@@ -1,11 +1,14 @@
 package ru.malis.core_domain.models
 
+import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "company")
 data class Company(
-    val id: Int? = null,
+    @PrimaryKey val id: Int? = null,
     val name: String? = null,
     val img: String? = null,
     val lat: Double? = null,

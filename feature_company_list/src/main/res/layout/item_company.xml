@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="1dp"
+    android:elevation="@dimen/company_card_elevation"
+    app:cardCornerRadius="@dimen/company_card_radius"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/ic_image_placeholder"
+            android:id="@+id/item_company_iv_image"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
+
+        <TextView
+            android:id="@+id/item_company_tv_name"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/item_company_title_margin"
+            tools:text="By Park Inn.Ижевск"
+            android:layout_height="wrap_content"
+            style="@style/item_company_name" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

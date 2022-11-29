@@ -37,7 +37,7 @@ dependencies {
     implementation project(':core_domain')
 
     implementation roomDependencies.room
-    annotationProcessor roomDependencies.room_compiler
+    kapt roomDependencies.room_compiler
     implementation roomDependencies.room_runtime
 
     implementation 'androidx.core:core-ktx:1.7.0'

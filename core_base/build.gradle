@@ -1,13 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
 }
 
-apply from: "$rootDir/dependencies.gradle"
-
 android {
-    namespace 'ru.malis.feature_company_list'
+    namespace 'ru.malis.core_base'
     compileSdk 32
 
     defaultConfig {
@@ -31,29 +28,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
-    implementation project(':core_style')
     implementation project(':core_domain')
-    implementation project(':core_base')
-
-    implementation viewBindingDependencies.viewBinding
-
-    implementation androidxNavigationDependencies.navigation_fragment
-    implementation androidxNavigationDependencies.navigation_ui
-
-    implementation daggerDependencies.dagger
-    kapt daggerDependencies.dagger_compiler
-    implementation annotationDependencies.annotation
-
-    implementation viewModelDependencies.lifecycle_viewmodel_ktx
-
-    implementation glideDependencies.glide
-    implementation glideDependencies.glide_compiler
+    implementation project(':core_style')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

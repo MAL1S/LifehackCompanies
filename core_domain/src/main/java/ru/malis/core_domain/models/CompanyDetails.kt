@@ -7,9 +7,12 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import ru.malis.core_domain.models.base.BaseIdClass
 
-@Entity(tableName = "company")
-data class Company(
-    @PrimaryKey override val id: Int = 0,
+data class CompanyDetails(
+    @PrimaryKey val id: Int = 0,
     val name: String? = null,
     val img: String? = null,
-): BaseIdClass()
+    val lat: Double? = null,
+    val lon: Double? = null,
+    @SerializedName("www") val siteUrl: String? = null,
+    val phone: String? = null,
+)

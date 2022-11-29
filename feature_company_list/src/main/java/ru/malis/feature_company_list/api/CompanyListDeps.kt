@@ -2,11 +2,14 @@ package ru.malis.feature_company_list.api
 
 import android.app.Application
 import android.content.Context
+import ru.malis.core_domain.usecase.company.GetCompaniesUseCase
 import ru.malis.core_domain.usecase.company.GetCompanyDetailsUseCase
+import ru.malis.core_domain.usecase.company.LoadCompaniesUseCase
 
 interface CompanyListDeps {
 
-    val companyDetailsUseCase: GetCompanyDetailsUseCase
+    val getCompaniesUseCase: GetCompaniesUseCase
+    val loadCompaniesUseCase: LoadCompaniesUseCase
     val companyListNavigation: CompanyListNavigation
 }
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="company_card_radius">20dp</dimen>
+    <dimen name="company_card_elevation">20dp</dimen>
+    <dimen name="item_company_title_margin">16dp</dimen>
+    <dimen name="list_vertical_margin">16dp</dimen>
+</resources>

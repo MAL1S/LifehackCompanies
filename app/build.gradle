@@ -42,6 +42,7 @@ dependencies {
     implementation project(':core_network')
     implementation project(':core_util')
     implementation project(':core_style')
+    implementation project(':core_base')
     implementation project(':feature_company_list')
 
     implementation daggerDependencies.dagger

@@ -9,7 +9,7 @@ class GetCompaniesUseCase @Inject constructor(
     private val companyRepository: CompanyRepository
 ) {
 
-    fun invoke(): Flow<List<Company>> {
+    operator fun invoke(): Flow<List<Company>> {
         return companyRepository.getCompanies()
     }
 }

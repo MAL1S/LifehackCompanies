@@ -14,3 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "LifehackCompanies"
 include ':app'
+include ':core_data'
+include ':core_domain'
+include ':core_database'
+include ':core_network'
+include ':feature_company_list'

@@ -1,23 +1,18 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
 }
 
-apply from: "$rootDir/dependencies.gradle"
-
 android {
-    namespace 'ru.malis.lifehackcompanies'
+    namespace 'ru.malis.core_database'
     compileSdk 32
 
     defaultConfig {
-        applicationId "ru.malis.lifehackcompanies"
         minSdk 24
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -36,24 +31,10 @@ android {
 }
 
 dependencies {
-    implementation project(':core_domain')
-    implementation project(':core_data')
-    implementation project(':core_database')
-    implementation project(':core_network')
-    implementation project(':feature_company_list')
-
-    implementation daggerDependencies.dagger
-    kapt daggerDependencies.dagger_compiler
-    implementation annotationDependencies.annotation
-
-    implementation roomDependencies.room
-    kapt roomDependencies.room_compiler
-    implementation roomDependencies.room_runtime
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'

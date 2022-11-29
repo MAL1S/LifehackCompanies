@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+apply from: "$rootDir/dependencies.gradle"
+
+android {
+    namespace 'ru.malis.core_domain'
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation roomDependencies.room_runtime
+
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.dagger_compiler
+    implementation annotationDependencies.annotation
+
+    implementation retrofitDependencies.retrofit_converter_gson
+
+    implementation coroutinesDependencies.coroutines
+
+    testImplementation 'junit:junit:4.13.2'
+}

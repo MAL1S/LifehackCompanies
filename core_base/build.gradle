@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply from: "$rootDir/dependencies.gradle"
+
 android {
     namespace 'ru.malis.core_base'
     compileSdk 32
@@ -33,6 +35,8 @@ android {
 dependencies {
     implementation project(':core_domain')
     implementation project(':core_style')
+
+    implementation yandexMapDependencies.yandexMap
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

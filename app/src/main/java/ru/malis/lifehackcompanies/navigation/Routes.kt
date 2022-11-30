@@ -2,13 +2,19 @@ package ru.malis.lifehackcompanies.navigation
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.commit
+import ru.malis.feature_company_details.api.CompanyDetailsFragment
 import ru.malis.lifehackcompanies.R
 import ru.malis.core_style.R as style
 
 object Routes {
 
     fun Fragment.navigateToCompanyDetails(companyId: Int) {
-
+        val fragment = CompanyDetailsFragment.newInstance(companyId)
+        parentFragmentManager.commit {
+            setupTransaction(fragment)
+            addToBackStack(null)
+        }
     }
 
     fun Fragment.popBackStack() {

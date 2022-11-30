@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="company_card_radius">20dp</dimen>
+    <dimen name="card_radius">20dp</dimen>
     <dimen name="company_card_elevation">20dp</dimen>
     <dimen name="item_company_title_margin">16dp</dimen>
     <dimen name="list_vertical_margin">16dp</dimen>
+    <dimen name="company_list_horizontal_margin">16dp</dimen>
+    <dimen name="company_item_image_height">100dp</dimen>
+    <dimen name="button_back_margin">24dp</dimen>
+    <dimen name="scroll_view_content_bottom_padding">16dp</dimen>
+    <dimen name="img_error_loading_size">70dp</dimen>
+    <dimen name="company_details_image_height">180dp</dimen>
+    <dimen name="company_details_image_margin">16dp</dimen>
+    <dimen name="text_view_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dvider_margin">16dp</dimen>
+    <dimen name="company_details_map_height">150dp</dimen>
 </resources>

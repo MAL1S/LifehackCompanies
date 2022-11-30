@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LifehackCompanies" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">?attr/mainColor</item>
+        <item name="colorPrimaryVariant">?attr/mainColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">?attr/mainColor</item>
+        <item name="colorSecondaryVariant">?attr/mainColor</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="mainColor">@color/blue_main</item>
+    </style>
+
+    <style name="Theme.LifehackCompanies.Splash" parent="Theme.LifehackCompanies">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+</resources>

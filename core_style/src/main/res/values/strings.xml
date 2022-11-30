@@ -1,3 +1,4 @@
 <resources>
-
+    <string name="app_name">LifehackCompanies</string>
+    <string name="error_loading">Ошибка загрузки данных</string>
 </resources>

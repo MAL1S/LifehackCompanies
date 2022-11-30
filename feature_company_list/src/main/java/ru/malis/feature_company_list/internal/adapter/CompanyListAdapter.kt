@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import ru.malis.core_domain.models.Company
-import ru.malis.core_domain.models.base.BaseIdClass
 import ru.malis.feature_company_list.R
 import ru.malis.feature_company_list.databinding.ItemCompanyBinding
 import ru.malis.core_style.R as style

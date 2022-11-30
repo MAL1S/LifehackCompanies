@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
     android:layout_margin="1dp"
     android:elevation="@dimen/company_card_elevation"
-    app:cardCornerRadius="@dimen/company_card_radius"
-    android:layout_height="wrap_content">
+    app:cardCornerRadius="@dimen/card_radius">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <ImageView
-            android:src="@drawable/ic_image_placeholder"
             android:id="@+id/item_company_iv_image"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/company_item_image_height"
+            android:layout_weight="0.3"
             android:scaleType="fitXY"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"/>
+            android:src="@drawable/ic_image_placeholder" />
 
         <TextView
             android:id="@+id/item_company_tv_name"
-            android:layout_width="match_parent"
-            android:layout_margin="@dimen/item_company_title_margin"
-            tools:text="By Park Inn.Ижевск"
+            style="@style/TextTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/item_company_name" />
+            android:layout_margin="@dimen/item_company_title_margin"
+            android:lines="2"
+            android:layout_weight="0.7"
+            tools:text="By Park Inn.Ижевск" />
 
     </LinearLayout>
 

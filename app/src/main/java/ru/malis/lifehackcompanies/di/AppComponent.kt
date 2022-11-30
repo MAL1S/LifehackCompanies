@@ -3,6 +3,7 @@ package ru.malis.lifehackcompanies.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
+import ru.malis.feature_company_details.api.CompanyDetailsDeps
 import ru.malis.feature_company_list.api.CompanyListDeps
 import ru.malis.feature_company_list.api.CompanyListDepsProvider
 import ru.malis.lifehackcompanies.MainActivity
@@ -21,7 +22,7 @@ annotation class AppScope
         NavigationModule::class,
     ]
 )]
-interface AppComponent : CompanyListDeps {
+interface AppComponent : CompanyListDeps, CompanyDetailsDeps {
 
     @Component.Factory
     interface Factory {

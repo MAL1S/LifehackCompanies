@@ -2,6 +2,8 @@ package ru.malis.feature_company_details.api
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
@@ -107,17 +109,19 @@ class CompanyDetailsFragment : Fragment(R.layout.fragment_company_details) {
                     companyDetailsTvName.text = it.name ?: ""
                     companyDetailsTvDescription.text = it.description ?: ""
 
-                    if (it.phone == "") {
+                    if (it.phone == null || it.phone == "") {
                         companyDetailsTvPhone.visibility = View.GONE
                         companyDetailsFabPhone.visibility = View.GONE
                     } else {
+                        initPhone(it.phone!!)
                         companyDetailsTvPhone.text = it.phone
                     }
 
-                    if (it.siteUrl == "") {
+                    if (it.siteUrl == null || it.siteUrl == "") {
                         companyDetailsTvSite.visibility = View.GONE
                         companyDetailsFabSite.visibility = View.GONE
                     } else {
+                        initSite(it.siteUrl!!)
                         companyDetailsTvSite.text = it.siteUrl
                     }
                 }
@@ -180,6 +184,23 @@ class CompanyDetailsFragment : Fragment(R.layout.fragment_company_details) {
             companyDetailsErrorContent.visibility = if (isSuccess) View.GONE else View.VISIBLE
             companyDetailsContent.visibility = if (isSuccess) View.VISIBLE else View.GONE
             companyDetailsProgressBar.visibility = View.GONE
+        }
+    }
+
+    private fun initPhone(phone: String) {
+        binding.companyDetailsFabPhone.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$phone")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+    }
+
+    private fun initSite(siteUrl: String) {
+        binding.companyDetailsFabSite.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://$siteUrl"))
+            browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(browserIntent)
         }
     }
 }

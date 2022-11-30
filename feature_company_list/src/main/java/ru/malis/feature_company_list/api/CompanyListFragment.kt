@@ -2,6 +2,7 @@ package ru.malis.feature_company_list.api
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -62,8 +63,7 @@ class CompanyListFragment: Fragment(R.layout.fragment_company_list) {
 
         lifecycleScope.launch {
             companyListViewModel.getCompanies().collect {
-                companyListAdapter.companies = it.toMutableList()
-
+                Log.d("testing", "$it")
                 triggerCompanyDiffUtil(it)
             }
         }

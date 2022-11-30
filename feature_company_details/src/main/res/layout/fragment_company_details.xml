@@ -1,14 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".api.CompanyDetailsFragment">
+    android:fillViewport="true"
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/company_details_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        tools:context=".api.CompanyDetailsFragment">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/company_details_btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_margin="24dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/mainColor" />
+
+        <ProgressBar
+            android:id="@+id/company_details_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/company_details_error_content"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="company_details_error_iv, company_details_error_tv"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/company_details_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="
+            company_details_cardview_image,
+            company_details_tv_name,
+            company_details_map,
+            company_details_tv_description,
+            company_details_fab_phone,
+            company_details_fab_site,
+            company_details_tv_phone,
+            company_details_tv_site" />
+
+        <ImageView
+            android:id="@+id/company_details_error_iv"
+            android:layout_width="70dp"
+            android:src="@drawable/img_error"
+            android:layout_height="70dp"
+            app:layout_constraintBottom_toTopOf="@+id/company_details_error_tv"
+            app:layout_constraintEnd_toEndOf="@+id/company_details_error_tv"
+            app:layout_constraintStart_toStartOf="@+id/company_details_error_tv" />
+
+        <TextView
+            android:id="@+id/company_details_error_tv"
+            android:layout_width="wrap_content"
+            style="@style/TextTitle"
+            android:text="@string/error_loading"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/company_details_fab_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/company_details_cardview_image"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_btn_back">
+
+            <ImageView
+                android:id="@+id/company_details_iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_image_placeholder" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/company_details_tv_name"
+            style="@style/TextTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_cardview_image"
+            tools:text="By Park Inn.Ижевск" />
+
+        <ru.malis.core_base.ScrollableMapView
+            android:id="@+id/company_details_map"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_tv_name" />
+
+        <TextView
+            android:id="@+id/company_details_tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_map" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/company_details_fab_site"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:src="@drawable/ic_site"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_tv_description" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/company_details_fab_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:src="@drawable/ic_phone"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_tv_description" />
+
+        <TextView
+            android:id="@+id/company_details_tv_site"
+            style="@style/TextTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintEnd_toStartOf="@+id/company_details_tv_phone"
+            app:layout_constraintStart_toStartOf="@+id/company_details_fab_site"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_fab_site"
+            tools:text="www.sparta-fitness.ru" />
+
+        <TextView
+            android:id="@+id/company_details_tv_phone"
+            style="@style/TextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/company_details_fab_phone"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_fab_phone"
+            tools:text="+79875218872" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

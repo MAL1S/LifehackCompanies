@@ -26,7 +26,7 @@
             android:layout_margin="@dimen/item_company_title_margin"
             tools:text="By Park Inn.Ижевск"
             android:layout_height="wrap_content"
-            style="@style/item_company_name" />
+            style="@style/TextTitle" />
 
     </LinearLayout>
 

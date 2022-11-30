@@ -1,6 +1,7 @@
 package ru.malis.lifehackcompanies
 
 import android.app.Application
+import com.yandex.mapkit.MapKitFactory
 import ru.malis.feature_company_details.api.CompanyDetailsDeps
 import ru.malis.feature_company_details.api.CompanyDetailsDepsProvider
 import ru.malis.feature_company_list.api.CompanyListDeps
@@ -25,6 +26,7 @@ class App : Application(), CompanyListDepsProvider, CompanyDetailsDepsProvider {
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
+        MapKitFactory.setApiKey("47293adf-d377-4145-8282-36cbaa6bfa56")
     }
 
     override val companyListDeps: CompanyListDeps = appComponent

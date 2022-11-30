@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import ru.malis.core_database.dao.CompanyDao
 import ru.malis.core_domain.models.Company
+import ru.malis.core_domain.models.CompanyDetails
 import ru.malis.core_domain.repository.CompanyRepository
 import ru.malis.core_network.api.CompanyApi
 import ru.malis.core_util.coroutinedispatchers.IoDispatcher
@@ -30,9 +31,9 @@ class CompanyRepositoryImpl @Inject constructor(
         return companyDao.getCompanies()
     }
 
-    override suspend fun getCompanyById(id: Int): Company {
+    override suspend fun getCompanyById(id: Int): CompanyDetails {
         return withContext(ioDispatcher) {
-            companyApi.getCompanyById(id)
+            companyApi.getCompanyById(id)[0]
         }
     }
 }

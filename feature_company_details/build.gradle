@@ -39,6 +39,7 @@ android {
 dependencies {
     implementation project(':core_style')
     implementation project(':core_domain')
+    implementation project(':core_base')
 
     implementation viewBindingDependencies.viewBinding
 
@@ -53,6 +54,8 @@ dependencies {
 
     implementation glideDependencies.glide
     implementation glideDependencies.glide_compiler
+
+    implementation yandexMapDependencies.yandexMap
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

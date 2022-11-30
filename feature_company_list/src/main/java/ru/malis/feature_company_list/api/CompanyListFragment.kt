@@ -62,8 +62,6 @@ class CompanyListFragment: Fragment(R.layout.fragment_company_list) {
 
         lifecycleScope.launch {
             companyListViewModel.getCompanies().collect {
-                companyListAdapter.companies = it.toMutableList()
-
                 triggerCompanyDiffUtil(it)
             }
         }

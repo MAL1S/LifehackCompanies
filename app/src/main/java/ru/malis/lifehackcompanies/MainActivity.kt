@@ -1,8 +1,7 @@
 package ru.malis.lifehackcompanies
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatActivity
 import ru.malis.feature_company_list.api.CompanyListFragment
 import ru.malis.core_style.R as style
 

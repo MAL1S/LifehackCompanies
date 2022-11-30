@@ -3,26 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:fillViewport="true"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/company_details_container"
         android:layout_width="match_parent"
-        android:paddingBottom="16dp"
         android:layout_height="wrap_content"
-        tools:context=".api.CompanyDetailsFragment">
+        android:paddingBottom="@dimen/scroll_view_content_bottom_padding">
 
-        <ImageButton
-            android:id="@+id/company_details_btn_back"
-            android:layout_width="wrap_content"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
-            android:layout_margin="24dp"
-            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="?attr/mainColor" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/mainColor"
+                android:maxHeight="?attr/actionBarSize">
+
+                <ImageButton
+                    android:id="@+id/company_details_btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_back"
+                    app:tint="@color/white" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <ProgressBar
             android:id="@+id/company_details_progress_bar"
@@ -36,9 +51,9 @@
         <androidx.constraintlayout.widget.Group
             android:id="@+id/company_details_error_content"
             android:layout_width="wrap_content"
-            android:visibility="gone"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="company_details_error_iv, company_details_error_tv"/>
+            android:visibility="gone"
+            app:constraint_referenced_ids="company_details_error_iv, company_details_error_tv" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/company_details_content"
@@ -46,70 +61,64 @@
             android:layout_height="wrap_content"
 
             app:constraint_referenced_ids="
-            company_details_cardview_image,
+            company_details_iv_image,
             company_details_tv_name,
             company_details_map,
             company_details_tv_description,
             company_details_fab_phone,
             company_details_fab_site,
             company_details_tv_phone,
-            company_details_tv_site" />
+            company_details_tv_site,
+            company_details_divider" />
 
         <ImageView
             android:id="@+id/company_details_error_iv"
-            android:layout_width="70dp"
+            android:layout_width="@dimen/img_error_loading_size"
+            android:layout_height="@dimen/img_error_loading_size"
             android:src="@drawable/img_error"
-            android:layout_height="70dp"
             app:layout_constraintBottom_toTopOf="@+id/company_details_error_tv"
             app:layout_constraintEnd_toEndOf="@+id/company_details_error_tv"
             app:layout_constraintStart_toStartOf="@+id/company_details_error_tv" />
 
         <TextView
             android:id="@+id/company_details_error_tv"
-            android:layout_width="wrap_content"
             style="@style/TextTitle"
-            android:text="@string/error_loading"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/error_loading"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/company_details_fab_phone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/company_details_cardview_image"
+        <ImageView
+            android:id="@+id/company_details_iv_image"
             android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="20dp"
+            android:layout_height="@dimen/company_details_image_height"
+            android:layout_marginBottom="@dimen/company_details_image_margin"
+            android:scaleType="center"
+            android:src="@drawable/ic_image_placeholder"
+            app:cardCornerRadius="@dimen/card_radius"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/company_details_btn_back">
-
-            <ImageView
-                android:id="@+id/company_details_iv_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_image_placeholder" />
-
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
         <TextView
             android:id="@+id/company_details_tv_name"
             style="@style/TextTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/text_view_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/company_details_cardview_image"
+            app:layout_constraintTop_toBottomOf="@+id/company_details_iv_image"
             tools:text="By Park Inn.Ижевск" />
 
         <ru.malis.core_base.ScrollableMapView
             android:id="@+id/company_details_map"
             android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_margin="16dp"
+            android:layout_height="@dimen/company_details_map_height"
+            android:layout_margin="@dimen/text_view_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/company_details_tv_name" />
@@ -118,46 +127,57 @@
             android:id="@+id/company_details_tv_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/text_view_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/company_details_map" />
+
+        <View
+            android:id="@+id/company_details_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/dvider_margin"
+            android:background="@color/gray_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_details_tv_description" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/company_details_fab_site"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/fab_margin"
             android:backgroundTint="@color/white"
             android:elevation="@dimen/cardview_default_elevation"
             android:src="@drawable/ic_site"
             app:borderWidth="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/company_details_tv_description" />
+            app:layout_constraintTop_toBottomOf="@+id/company_details_divider"
+            app:tint="?attr/mainColor" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/company_details_fab_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/fab_margin"
             android:backgroundTint="@color/white"
             android:elevation="@dimen/cardview_default_elevation"
             android:src="@drawable/ic_phone"
             app:borderWidth="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/company_details_tv_description" />
+            app:layout_constraintTop_toBottomOf="@+id/company_details_divider"
+            app:tint="?attr/mainColor" />
 
         <TextView
             android:id="@+id/company_details_tv_site"
             style="@style/TextTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="@dimen/text_view_margin"
+            android:layout_marginEnd="@dimen/text_view_margin"
             android:ellipsize="end"
             android:maxLines="1"
+            android:textColor="?attr/mainColor"
             app:layout_constraintEnd_toStartOf="@+id/company_details_tv_phone"
             app:layout_constraintStart_toStartOf="@+id/company_details_fab_site"
             app:layout_constraintTop_toBottomOf="@+id/company_details_fab_site"
@@ -168,7 +188,8 @@
             style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/text_view_margin"
+            android:textColor="?attr/mainColor"
             app:layout_constraintEnd_toEndOf="@+id/company_details_fab_phone"
             app:layout_constraintTop_toBottomOf="@+id/company_details_fab_phone"
             tools:text="+79875218872" />

@@ -5,7 +5,6 @@ import dagger.BindsInstance
 import dagger.Component
 import ru.malis.feature_company_details.api.CompanyDetailsDeps
 import ru.malis.feature_company_list.api.CompanyListDeps
-import ru.malis.feature_company_list.api.CompanyListDepsProvider
 import ru.malis.lifehackcompanies.MainActivity
 import javax.inject.Qualifier
 import javax.inject.Scope

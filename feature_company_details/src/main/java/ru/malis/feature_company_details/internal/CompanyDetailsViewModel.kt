@@ -1,6 +1,5 @@
 package ru.malis.feature_company_details.internal
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -31,8 +30,6 @@ internal class CompanyDetailsViewModel @Inject constructor(
                 _errorSharedFlow.emit(true)
                 null
             }
-
-            Log.d("testing", "$companyDetails")
 
             if (companyDetails != null) {
                 _companyDetailsSharedFlow.emit(companyDetails)

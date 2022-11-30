@@ -2,27 +2,23 @@ package ru.malis.feature_company_list.api
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import ru.malis.feature_company_list.R
 import dagger.Lazy
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ru.malis.core_base.BaseDiffUtilCallback
 import ru.malis.core_base.VerticalSpaceItemDecorator
 import ru.malis.core_domain.models.Company
+import ru.malis.feature_company_list.R
 import ru.malis.feature_company_list.databinding.FragmentCompanyListBinding
 import ru.malis.feature_company_list.internal.CompanyListViewModel
 import ru.malis.feature_company_list.internal.CompanyListViewModelFactory
 import ru.malis.feature_company_list.internal.adapter.CompanyListAdapter
-import ru.malis.feature_company_list.internal.di.CompanyListComponent
 import ru.malis.feature_company_list.internal.di.CompanyListComponentViewModel
 import javax.inject.Inject
 
@@ -66,7 +62,6 @@ class CompanyListFragment: Fragment(R.layout.fragment_company_list) {
 
         lifecycleScope.launch {
             companyListViewModel.getCompanies().collect {
-                Log.d("testing", "$it")
                 companyListAdapter.companies = it.toMutableList()
 
                 triggerCompanyDiffUtil(it)

@@ -7,7 +7,7 @@ import ru.malis.feature_company_details.api.CompanyDetailsNavigation
 import javax.inject.Inject
 import javax.inject.Provider
 
-class CompanyDetailsViewModelFactory @Inject constructor(
+internal class CompanyDetailsViewModelFactory @Inject constructor(
     private val getCompanyDetailsUseCase: Provider<GetCompanyDetailsUseCase>,
     private val companyDetailsNavigation: Provider<CompanyDetailsNavigation>,
 ): ViewModelProvider.Factory {

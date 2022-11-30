@@ -9,6 +9,8 @@
         android:id="@+id/company_list_rcv_companies"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:scrollbars="none"
+        android:layout_marginHorizontal="@dimen/company_list_horizontal_margin"
         tools:listitem="@layout/item_company"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

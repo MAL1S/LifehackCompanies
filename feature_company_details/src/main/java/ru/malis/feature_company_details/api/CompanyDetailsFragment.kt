@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -161,7 +160,6 @@ class CompanyDetailsFragment : Fragment(R.layout.fragment_company_details) {
         setPointOnMap(point)
 
         binding.companyDetailsMap.setOnTouchListener { v, event ->
-            Log.d("testing", "$event")
             when (event.action) {
                 MotionEvent.ACTION_DOWN ->
                     binding.companyDetailsMap.parent.requestDisallowInterceptTouchEvent(true)

@@ -8,9 +8,7 @@ import ru.malis.core_domain.models.CompanyDetails
 interface CompanyApi {
 
     @GET("test.php")
-    suspend fun getCompanies(
-        //category: String
-    ): List<Company>
+    suspend fun getCompanies(): List<Company>
 
     @GET("test.php")
     suspend fun getCompanyById(
